@@ -5,7 +5,7 @@
         <!-- Columna 1: Sobre Tomás -->
         <div class="footer-col footer-col--about">
           <img
-            src="/src/assets/logo.png"
+            :src="logoImg"
             alt="Tomás Casas - Plomero y Gasista"
             class="footer-logo"
           />
@@ -88,17 +88,44 @@
 </template>
 
 <script setup>
+import logoImg from 'src/assets/logo.png'
+
 const currentYear = new Date().getFullYear()
 </script>
 
 <style lang="scss" scoped>
 .footer {
-  background-color: #111111;
-  padding: 40px 0 24px;
+  position: relative;
+  background: linear-gradient(180deg, #0b1120 0%, #111111 100%);
+  padding: 48px 0 24px;
   color: #e5e7eb;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #dc2626 0%, #dc2626 50%, #1a56db 50%, #1a56db 100%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26, 86, 219, 0.18), transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+  }
 
   @media (min-width: 769px) {
-    padding: 60px 0 30px;
+    padding: 72px 0 30px;
   }
 }
 
@@ -122,12 +149,14 @@ const currentYear = new Date().getFullYear()
 }
 
 .footer-logo {
-  height: 46px;
-  margin-bottom: 14px;
+  height: 52px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  object-fit: contain;
 
   @media (min-width: 769px) {
-    height: 54px;
-    margin-bottom: 16px;
+    height: 62px;
+    margin-bottom: 18px;
   }
 }
 
@@ -149,22 +178,25 @@ const currentYear = new Date().getFullYear()
 }
 
 .social-link {
-  width: 38px;
-  height: 38px;
-  background-color: #1a56db;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(26, 86, 219, 0.9);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  transition: background-color 0.2s;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
     background-color: #dc2626;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(220, 38, 38, 0.4);
   }
 
   &--whatsapp:hover {
     background-color: #25d366;
+    box-shadow: 0 8px 18px rgba(37, 211, 102, 0.4);
   }
 }
 

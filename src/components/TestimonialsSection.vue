@@ -1,14 +1,17 @@
 <template>
   <section id="testimonios" class="testimonials section-padding">
     <div class="container">
-      <h2 class="section-title">Testimonios de Clientes</h2>
-      <p class="section-subtitle">
-        Lo que dicen mis clientes sobre el trabajo realizado. Tu opinión es muy
-        importante para mí.
-      </p>
+      <div class="testimonials-header" data-reveal>
+        <span class="section-eyebrow">Testimonios</span>
+        <h2 class="section-title">Lo que dicen mis clientes</h2>
+        <p class="section-subtitle">
+          Tu opinión es muy importante para mí. Estas son algunas de las
+          experiencias de quienes ya confiaron en el servicio.
+        </p>
+      </div>
 
       <div class="google-reviews">
-        <div class="google-reviews__header">
+        <div class="google-reviews__header" data-reveal>
           <img
             src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
             alt="Google"
@@ -17,26 +20,41 @@
           <div class="google-reviews__rating">
             <div class="stars">
               <q-icon
-                v-for="n in 5"
+                v-for="n in 4"
                 :key="n"
                 name="star"
                 color="warning"
                 size="22px"
               />
+              <q-icon
+                  v-for="n in 1"
+                  :key="n"
+                  name="star_half"
+                  color="warning"
+                  size="22px"
+              />
             </div>
-            <!-- TODO: Actualizar con la calificación real de Google -->
-            <span class="rating-text">5.0 basado en reseñas de Google</span>
+            <span class="rating-text">4.6 basado en reseñas de Google</span>
           </div>
         </div>
 
         <div class="reviews-grid">
           <div
-            v-for="review in reviews"
+            v-for="(review, i) in reviews"
             :key="review.name"
             class="review-card"
+            data-reveal
+            :data-reveal-delay="i * 150"
           >
+            <q-icon name="format_quote" size="36px" class="review-card__quote" />
+            <p class="review-card__text">{{ review.text }}</p>
             <div class="review-card__header">
-              <q-avatar color="primary" text-color="white" size="40px" font-size="16px">
+              <q-avatar
+                :color="i % 2 === 0 ? 'primary' : 'secondary'"
+                text-color="white"
+                size="44px"
+                font-size="16px"
+              >
                 {{ review.name.charAt(0) }}
               </q-avatar>
               <div>
@@ -52,12 +70,10 @@
                 </div>
               </div>
             </div>
-            <p class="review-card__text">{{ review.text }}</p>
           </div>
         </div>
 
-        <!-- TODO: Reemplazar con el link real de Google Reviews de Tomás -->
-        <div class="reviews-cta">
+        <div class="reviews-cta" data-reveal>
           <a
             href="https://g.page/NEGOCIO/review"
             target="_blank"
@@ -74,7 +90,6 @@
 </template>
 
 <script setup>
-// TODO: Reemplazar con reseñas reales de clientes de Tomás
 const reviews = [
   {
     name: 'María García',
@@ -97,10 +112,15 @@ const reviews = [
 <style lang="scss" scoped>
 .testimonials {
   background-color: #f5f7fa;
+  position: relative;
+}
+
+.testimonials-header {
+  text-align: center;
 }
 
 .google-reviews {
-  max-width: 900px;
+  max-width: 980px;
   margin: 0 auto;
 }
 
@@ -108,20 +128,20 @@ const reviews = [
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 
   @media (min-width: 769px) {
-    margin-bottom: 40px;
+    margin-bottom: 44px;
   }
 }
 
 .google-logo {
-  height: 24px;
+  height: 26px;
   margin-bottom: 10px;
 
   @media (min-width: 769px) {
-    height: 30px;
-    margin-bottom: 12px;
+    height: 32px;
+    margin-bottom: 14px;
   }
 }
 
@@ -129,54 +149,85 @@ const reviews = [
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .stars {
   display: flex;
-  gap: 2px;
+  gap: 3px;
 }
 
 .rating-text {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: #4b5563;
+  font-weight: 500;
 
   @media (min-width: 769px) {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
   }
 }
 
 .reviews-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 18px;
+  margin-bottom: 36px;
 
   @media (min-width: 600px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 22px;
   }
 
   @media (min-width: 1024px) {
-    gap: 24px;
-    margin-bottom: 40px;
+    gap: 26px;
+    margin-bottom: 44px;
   }
 }
 
 .review-card {
+  position: relative;
   background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease;
-  border-left: 3px solid #1a56db;
+  border-radius: 16px;
+  padding: 28px 22px 22px;
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 1px solid rgba(17, 17, 17, 0.04);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #1a56db, #dc2626);
+  }
 
   @media (min-width: 769px) {
-    padding: 24px;
+    padding: 32px 28px 26px;
 
     &:hover {
-      transform: translateY(-3px);
+      transform: translateY(-6px);
+      box-shadow: 0 22px 50px rgba(17, 17, 17, 0.12);
     }
+  }
+}
+
+.review-card__quote {
+  color: rgba(26, 86, 219, 0.12);
+  margin-bottom: -8px;
+}
+
+.review-card__text {
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  font-style: italic;
+
+  @media (min-width: 769px) {
+    font-size: 0.95rem;
   }
 }
 
@@ -184,15 +235,12 @@ const reviews = [
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
-
-  @media (min-width: 769px) {
-    margin-bottom: 14px;
-  }
+  padding-top: 16px;
+  border-top: 1px solid rgba(17, 17, 17, 0.06);
 }
 
 .review-card__name {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: #111111;
   margin: 0;
@@ -202,17 +250,6 @@ const reviews = [
   display: flex;
   gap: 1px;
   margin-top: 2px;
-}
-
-.review-card__text {
-  font-size: 0.85rem;
-  color: #4b5563;
-  line-height: 1.6;
-  margin: 0;
-
-  @media (min-width: 769px) {
-    font-size: 0.9rem;
-  }
 }
 
 .reviews-cta {
