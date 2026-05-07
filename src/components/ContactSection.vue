@@ -3,7 +3,7 @@
     <div class="container">
       <div class="contact-header" data-reveal>
         <span class="section-eyebrow">Contacto</span>
-        <h2 class="section-title">Hablemos de tu proyecto</h2>
+        <h2 class="section-title">Acerca de mí</h2>
         <p class="section-subtitle">
           Estoy disponible las 24 horas, los 7 días de la semana.
           Contactame por WhatsApp para una respuesta inmediata.

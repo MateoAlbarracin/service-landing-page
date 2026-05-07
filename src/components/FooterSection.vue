@@ -16,10 +16,10 @@
           </p>
           <div class="footer-social">
             <!-- TODO: Reemplazar con los links reales de redes sociales de Tomás -->
-            <a href="#" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <a href="https://www.facebook.com/share/18f7wJqdbM/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
               <q-icon name="fab fa-facebook-f" size="18px" />
             </a>
-            <a href="#" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/gasistacba?igsh=MW1sano3ZnVrMzlsZw%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
               <q-icon name="fab fa-instagram" size="18px" />
             </a>
             <a href="https://wa.me/message/EVCEHGK4VV3GD1" target="_blank" rel="noopener" class="social-link social-link--whatsapp" aria-label="WhatsApp">

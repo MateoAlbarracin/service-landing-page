@@ -73,7 +73,7 @@
           </div>
         </div>
 
-        <div class="reviews-cta" data-reveal>
+        <div v-if="false" class="reviews-cta" data-reveal>
           <a
             href="https://g.page/NEGOCIO/review"
             target="_blank"
