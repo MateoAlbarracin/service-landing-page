@@ -36,10 +36,11 @@
 </template>
 
 <script setup>
-import trabajoBomba from 'src/assets/trabajo-bomba.jpg'
-import trabajoCalefon from 'src/assets/trabajo-calefon.jpg'
-import trabajoCocina from 'src/assets/trabajo-cocina.jpg'
-import trabajoInodoro from 'src/assets/trabajo-inodoro.jpg'
+// Las fotos se muestran en tarjetas chicas: redimensionamos a 800px (cubre retina).
+import trabajoBomba from 'src/assets/trabajo-bomba.jpg?format=webp&quality=75&w=800'
+import trabajoCalefon from 'src/assets/trabajo-calefon.jpg?format=webp&quality=75&w=800'
+import trabajoCocina from 'src/assets/trabajo-cocina.jpg?format=webp&quality=75&w=800'
+import trabajoInodoro from 'src/assets/trabajo-inodoro.jpg?format=webp&quality=75&w=800'
 
 const works = [
   {

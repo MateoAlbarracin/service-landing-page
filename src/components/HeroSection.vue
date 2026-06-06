@@ -62,7 +62,7 @@
 </template>
 
 <script setup>
-import heroImg from 'src/assets/hero.jpg'
+import heroImg from 'src/assets/hero.jpg?format=webp&quality=75&w=1600'
 </script>
 
 <style lang="scss" scoped>

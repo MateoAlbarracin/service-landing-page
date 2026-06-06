@@ -57,8 +57,8 @@
 </template>
 
 <script setup>
-import plomeriaImg from 'src/assets/plomeria.jpg'
-import gasistaImg from 'src/assets/gasista.jpg'
+import plomeriaImg from 'src/assets/plomeria.jpg?format=webp&quality=75&w=900'
+import gasistaImg from 'src/assets/gasista.jpg?format=webp&quality=75&w=900'
 
 const mainServices = [
   {
