@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "gasistacba.com" }],
+      "destination": "https://www.gasistacba.com/:path*",
+      "permanent": true
+    }
+  ]
+}
