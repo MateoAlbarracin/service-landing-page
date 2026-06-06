@@ -6,7 +6,7 @@
     class="whatsapp-btn"
     aria-label="Contactar por WhatsApp"
   >
-    <q-icon name="fab fa-whatsapp" size="32px" color="white" />
+    <AppIcon name="fab fa-whatsapp" size="32px" color="white" />
   </a>
 </template>
 

@@ -8,7 +8,7 @@
     <div class="container hero-content">
       <div class="hero-text">
         <span class="hero-badge" data-reveal data-reveal-delay="100">
-          <q-icon name="workspace_premium" size="16px" />
+          <AppIcon name="workspace_premium" size="16px" />
           Gasista Matriculado · Córdoba
         </span>
 
@@ -43,11 +43,11 @@
             rel="noopener"
             class="btn-primary hero-btn"
           >
-            <q-icon name="fab fa-whatsapp" class="q-mr-sm" />
+            <AppIcon name="fab fa-whatsapp" class="q-mr-sm" />
             Contactar por WhatsApp
           </a>
           <a href="#servicios" class="btn-ghost hero-btn">
-            <q-icon name="build" class="q-mr-sm" />
+            <AppIcon name="build" class="q-mr-sm" />
             Ver servicios
           </a>
         </div>
@@ -56,7 +56,7 @@
 
     <a href="#servicios" class="hero-scroll" aria-label="Bajar a servicios">
       <span class="hero-scroll__label">Explorar servicios</span>
-      <q-icon name="keyboard_arrow_down" size="28px" />
+      <AppIcon name="keyboard_arrow_down" size="28px" />
     </a>
   </section>
 </template>
@@ -145,7 +145,7 @@ import heroImg from 'src/assets/hero.jpg'
   letter-spacing: 1.2px;
   margin-bottom: 22px;
 
-  :deep(.q-icon) {
+  :deep(.app-icon) {
     color: #fca5a5;
   }
 }

@@ -15,7 +15,7 @@
         <div class="contact-wpp-card" data-reveal="left">
           <div class="contact-wpp-card__glow" aria-hidden="true"></div>
           <div class="contact-wpp-card__icon">
-            <q-icon name="fab fa-whatsapp" size="48px" color="white" />
+            <AppIcon name="fab fa-whatsapp" size="48px" color="white" />
           </div>
           <h3 class="contact-wpp-card__title">Escribime por WhatsApp</h3>
           <p class="contact-wpp-card__text">
@@ -28,7 +28,7 @@
             rel="noopener"
             class="contact-wpp-btn"
           >
-            <q-icon name="fab fa-whatsapp" size="22px" class="q-mr-sm" />
+            <AppIcon name="fab fa-whatsapp" size="22px" class="q-mr-sm" />
             Abrir WhatsApp
           </a>
         </div>
@@ -38,7 +38,7 @@
           <!-- Horarios -->
           <div class="contact-schedule">
             <div class="contact-schedule__icon">
-              <q-icon name="schedule" size="26px" color="white" />
+              <AppIcon name="schedule" size="26px" color="white" />
             </div>
             <div>
               <h3 class="contact-schedule__title">Horarios de atención</h3>
@@ -49,7 +49,7 @@
                 </div>
               </div>
               <p class="contact-schedule__note">
-                <q-icon name="bolt" size="16px" color="secondary" />
+                <AppIcon name="bolt" size="16px" color="secondary" />
                 Atención inmediata para emergencias
               </p>
             </div>
@@ -58,7 +58,7 @@
           <!-- Zona -->
           <div class="contact-zone">
             <div class="contact-zone__icon">
-              <q-icon name="location_on" size="26px" color="white" />
+              <AppIcon name="location_on" size="26px" color="white" />
             </div>
             <div>
               <h3 class="contact-zone__title">Zona de cobertura</h3>
@@ -79,7 +79,7 @@
               rel="noopener"
               class="btn-white contact-cta-box__btn"
             >
-              <q-icon name="fab fa-whatsapp" class="q-mr-sm" />
+              <AppIcon name="fab fa-whatsapp" class="q-mr-sm" />
               Contactar ahora
             </a>
           </div>

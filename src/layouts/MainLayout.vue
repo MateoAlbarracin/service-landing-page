@@ -1,11 +1,11 @@
 <template>
-  <q-layout view="hHh lpR fFf" class="main-layout">
+  <div class="main-layout">
     <NavBar />
-    <q-page-container class="main-layout__page">
+    <main class="main-layout__page">
       <router-view />
-    </q-page-container>
+    </main>
     <WhatsAppButton />
-  </q-layout>
+  </div>
 </template>
 
 <script setup>
@@ -18,10 +18,9 @@ useScrollReveal()
 </script>
 
 <style lang="scss" scoped>
-.main-layout {
-  // Permite que el Hero quede por debajo del header transparente
-  :deep(.q-page-container) {
-    padding-top: 0 !important;
-  }
+// El header es fixed y transparente, así que el contenido arranca arriba de todo
+// (el Hero queda por debajo del header). No hace falta padding-top.
+.main-layout__page {
+  padding-top: 0;
 }
 </style>

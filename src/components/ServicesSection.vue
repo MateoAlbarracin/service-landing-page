@@ -21,7 +21,7 @@
         >
           <div class="service-card__image-wrapper">
             <div class="service-card__icon" :class="`service-card__icon--${service.accent}`">
-              <q-icon :name="service.icon" size="36px" color="white" />
+              <AppIcon :name="service.icon" size="36px" color="white" />
             </div>
             <img
               :src="service.image"
@@ -36,7 +36,7 @@
             <p class="service-card__text">{{ service.description }}</p>
             <ul class="service-card__list">
               <li v-for="item in service.items" :key="item">
-                <q-icon name="check_circle" :color="service.accent === 'blue' ? 'primary' : 'secondary'" size="18px" class="q-mr-xs" />
+                <AppIcon name="check_circle" :color="service.accent === 'blue' ? 'primary' : 'secondary'" size="18px" class="q-mr-xs" />
                 {{ item }}
               </li>
             </ul>
@@ -46,7 +46,7 @@
               rel="noopener"
               class="btn-primary service-card__cta"
             >
-              <q-icon name="fab fa-whatsapp" class="q-mr-xs" />
+              <AppIcon name="fab fa-whatsapp" class="q-mr-xs" />
               Consultar
             </a>
           </div>

@@ -10,7 +10,7 @@
           :data-reveal-delay="i * 120"
         >
           <div class="feature-icon" :class="`feature-icon--${feature.color}`">
-            <q-icon :name="feature.icon" size="30px" color="white" />
+            <AppIcon :name="feature.icon" size="30px" color="white" />
           </div>
           <div>
             <h3 class="feature-title">{{ feature.title }}</h3>

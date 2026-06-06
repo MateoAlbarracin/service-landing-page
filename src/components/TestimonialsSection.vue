@@ -19,14 +19,14 @@
           />
           <div class="google-reviews__rating">
             <div class="stars">
-              <q-icon
+              <AppIcon
                 v-for="n in 4"
                 :key="n"
                 name="star"
                 color="warning"
                 size="22px"
               />
-              <q-icon
+              <AppIcon
                   v-for="n in 1"
                   :key="n"
                   name="star_half"
@@ -46,21 +46,19 @@
             data-reveal
             :data-reveal-delay="i * 150"
           >
-            <q-icon name="format_quote" size="36px" class="review-card__quote" />
+            <AppIcon name="format_quote" size="36px" class="review-card__quote" />
             <p class="review-card__text">{{ review.text }}</p>
             <div class="review-card__header">
-              <q-avatar
-                :color="i % 2 === 0 ? 'primary' : 'secondary'"
-                text-color="white"
-                size="44px"
-                font-size="16px"
+              <div
+                class="review-avatar"
+                :class="i % 2 === 0 ? 'review-avatar--blue' : 'review-avatar--red'"
               >
                 {{ review.name.charAt(0) }}
-              </q-avatar>
+              </div>
               <div>
                 <h4 class="review-card__name">{{ review.name }}</h4>
                 <div class="review-card__stars">
-                  <q-icon
+                  <AppIcon
                     v-for="n in review.stars"
                     :key="n"
                     name="star"
@@ -80,7 +78,7 @@
             rel="noopener noreferrer"
             class="btn-primary reviews-cta-btn"
           >
-            <q-icon name="rate_review" class="q-mr-sm" />
+            <AppIcon name="rate_review" class="q-mr-sm" />
             Dejanos una reseña
           </a>
         </div>
@@ -237,6 +235,23 @@ const reviews = [
   gap: 12px;
   padding-top: 16px;
   border-top: 1px solid rgba(17, 17, 17, 0.06);
+}
+
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &--blue { background-color: #1a56db; }
+  &--red { background-color: #dc2626; }
 }
 
 .review-card__name {

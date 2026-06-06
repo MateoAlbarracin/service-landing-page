@@ -17,13 +17,13 @@
           <div class="footer-social">
             <!-- TODO: Reemplazar con los links reales de redes sociales de Tomás -->
             <a href="https://www.facebook.com/share/18f7wJqdbM/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-              <q-icon name="fab fa-facebook-f" size="18px" />
+              <AppIcon name="fab fa-facebook-f" size="18px" />
             </a>
             <a href="https://www.instagram.com/gasistacba?igsh=MW1sano3ZnVrMzlsZw%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-              <q-icon name="fab fa-instagram" size="18px" />
+              <AppIcon name="fab fa-instagram" size="18px" />
             </a>
             <a href="https://wa.me/message/EVCEHGK4VV3GD1" target="_blank" rel="noopener" class="social-link social-link--whatsapp" aria-label="WhatsApp">
-              <q-icon name="fab fa-whatsapp" size="18px" />
+              <AppIcon name="fab fa-whatsapp" size="18px" />
             </a>
           </div>
         </div>
@@ -57,22 +57,22 @@
           <h4 class="footer-col__title">Contacto</h4>
           <ul class="footer-contact">
             <li>
-              <q-icon name="fab fa-whatsapp" class="q-mr-sm" />
+              <AppIcon name="fab fa-whatsapp" class="q-mr-sm" />
               <a href="https://wa.me/message/EVCEHGK4VV3GD1" target="_blank" rel="noopener">WhatsApp</a>
             </li>
             <li>
-              <q-icon name="location_on" class="q-mr-sm" />
+              <AppIcon name="location_on" class="q-mr-sm" />
               Córdoba, Argentina
             </li>
             <li>
-              <q-icon name="schedule" class="q-mr-sm" />
+              <AppIcon name="schedule" class="q-mr-sm" />
               24hs - Todos los días
             </li>
           </ul>
         </div>
       </div>
 
-      <q-separator dark class="q-my-md" />
+      <hr class="footer-sep q-my-md" />
 
       <!-- Línea roja y azul como el logo -->
       <div class="footer-accent-line">
@@ -278,6 +278,12 @@ const currentYear = new Date().getFullYear()
       color: #25d366;
     }
   }
+}
+
+.footer-sep {
+  border: none;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .footer-accent-line {

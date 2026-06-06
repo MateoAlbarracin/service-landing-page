@@ -1,6 +1,6 @@
 <template>
-  <q-header class="navbar" :class="{ 'navbar--scrolled': scrolled }" bordered>
-    <q-toolbar class="container navbar-toolbar">
+  <header class="navbar" :class="{ 'navbar--scrolled': scrolled }">
+    <div class="container navbar-toolbar">
       <a href="#inicio" class="navbar-logo" aria-label="Inicio">
         <img
           :src="logoImg"
@@ -9,10 +9,10 @@
         />
       </a>
 
-      <q-space />
+      <div class="navbar-spacer"></div>
 
       <!-- Desktop menu -->
-      <div class="desktop-menu gt-sm">
+      <div class="desktop-menu">
         <a
           v-for="item in menuItems"
           :key="item.label"
@@ -27,34 +27,33 @@
           rel="noopener"
           class="btn-primary menu-cta"
         >
-          <q-icon name="fab fa-whatsapp" class="q-mr-xs" />
+          <AppIcon name="fab fa-whatsapp" class="q-mr-xs" />
           WhatsApp
         </a>
       </div>
 
       <!-- Mobile: WhatsApp + hamburger -->
-      <div class="lt-md mobile-actions">
-        <q-btn
-          flat
-          dense
-          round
-          icon="fab fa-whatsapp"
-          class="mobile-wpp-btn"
+      <div class="mobile-actions">
+        <a
           href="https://wa.me/message/EVCEHGK4VV3GD1"
           target="_blank"
-          tag="a"
-        />
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
+          rel="noopener"
+          class="mobile-wpp-btn"
+          aria-label="Contactar por WhatsApp"
+        >
+          <AppIcon name="fab fa-whatsapp" />
+        </a>
+        <button
+          type="button"
           class="mobile-menu-btn"
+          aria-label="Abrir menú"
           @click="mobileMenu = true"
-        />
+        >
+          <AppIcon name="menu" />
+        </button>
       </div>
 
-    </q-toolbar>
+    </div>
 
     <!-- Mobile drawer (fuera del toolbar, teleportado al body) -->
     <Teleport to="body">
@@ -74,7 +73,7 @@
               aria-label="Cerrar menú"
               @click="mobileMenu = false"
             >
-              <q-icon name="close" size="22px" />
+              <AppIcon name="close" size="22px" />
             </button>
           </header>
 
@@ -86,7 +85,7 @@
               class="mobile-drawer__link"
               @click="mobileMenu = false"
             >
-              <q-icon :name="item.icon" size="20px" class="mobile-drawer__link-icon" />
+              <AppIcon :name="item.icon" size="20px" class="mobile-drawer__link-icon" />
               <span class="mobile-drawer__link-label">{{ item.label }}</span>
             </a>
           </nav>
@@ -98,14 +97,14 @@
               rel="noopener"
               class="btn-primary mobile-drawer__cta"
             >
-              <q-icon name="fab fa-whatsapp" class="q-mr-sm" />
+              <AppIcon name="fab fa-whatsapp" class="q-mr-sm" />
               Contactar por WhatsApp
             </a>
           </div>
         </aside>
       </Transition>
     </Teleport>
-  </q-header>
+  </header>
 </template>
 
 <script setup>
@@ -145,6 +144,12 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: transparent;
   height: 72px;
   box-shadow: none;
@@ -153,11 +158,6 @@ onBeforeUnmount(() => {
 
   @media (min-width: 1024px) {
     height: 80px;
-  }
-
-  // Antes de hacer scroll: translúcido sobre el hero oscuro
-  :deep(.q-toolbar) {
-    background: transparent;
   }
 
   .menu-link {
@@ -195,6 +195,8 @@ onBeforeUnmount(() => {
 }
 
 .navbar-toolbar {
+  display: flex;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   height: 100%;
@@ -203,6 +205,10 @@ onBeforeUnmount(() => {
   @media (min-width: 1024px) {
     padding: 0 24px;
   }
+}
+
+.navbar-spacer {
+  flex: 1 1 auto;
 }
 
 .navbar-logo {
@@ -237,9 +243,13 @@ onBeforeUnmount(() => {
 }
 
 .desktop-menu {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 4px;
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
 }
 
 .menu-link {
@@ -284,20 +294,34 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   gap: 4px;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+// Reset compartido para los botones de íconos (antes eran q-btn).
+.mobile-wpp-btn,
+.mobile-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 .mobile-wpp-btn {
   color: #25d366;
-  font-size: 20px;
-
-  .navbar--scrolled & {
-    color: #25d366;
-  }
 }
 
 .mobile-menu-btn {
   color: #fff;
-  font-size: 20px;
   transition: color 0.3s ease;
 }
 

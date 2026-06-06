@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <div class="index-page">
     <HeroSection />
     <FeaturesSection />
     <ServicesSection />
@@ -7,7 +7,7 @@
     <TestimonialsSection />
     <ContactSection />
     <FooterSection />
-  </q-page>
+  </div>
 </template>
 
 <script setup>

@@ -112,6 +112,11 @@ img {
   }
 }
 
+// Utilidades de espaciado (equivalentes a las de Quasar que usábamos).
+.q-mr-xs { margin-right: 4px; }
+.q-mr-sm { margin-right: 8px; }
+.q-my-md { margin-top: 16px; margin-bottom: 16px; }
+
 .section-eyebrow {
   display: inline-block;
   font-size: 0.72rem;
