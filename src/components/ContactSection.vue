@@ -8,6 +8,10 @@
           Estoy disponible las 24 horas, los 7 días de la semana.
           Contactame por WhatsApp para una respuesta inmediata.
         </p>
+        <p v-if="site.matricula" class="contact-matricula">
+          <AppIcon name="workspace_premium" size="18px" color="primary" />
+          {{ site.matricula }}
+        </p>
       </div>
 
       <div class="contact-content">
@@ -62,7 +66,25 @@
             </div>
             <div>
               <h3 class="contact-zone__title">Zona de cobertura</h3>
-              <p class="contact-zone__text">Córdoba Capital y alrededores</p>
+              <p class="contact-zone__text">
+                {{ site.serviceAreas.length ? site.serviceAreas.join(' · ') : 'Córdoba Capital y alrededores' }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Teléfono / Email (aparecen al completar src/config/site.js) -->
+          <div v-if="site.phone || site.email" class="contact-phone">
+            <div class="contact-phone__icon">
+              <AppIcon name="call" size="26px" color="white" />
+            </div>
+            <div>
+              <h3 class="contact-phone__title">Teléfono y email</h3>
+              <p v-if="site.phone" class="contact-phone__text">
+                <a :href="phoneHref">{{ site.phone }}</a>
+              </p>
+              <p v-if="site.email" class="contact-phone__text">
+                <a :href="emailHref">{{ site.email }}</a>
+              </p>
             </div>
           </div>
 
@@ -90,6 +112,7 @@
 </template>
 
 <script setup>
+import { site, phoneHref, emailHref } from 'src/config/site'
 </script>
 
 <style lang="scss" scoped>
@@ -220,7 +243,8 @@
 }
 
 .contact-schedule,
-.contact-zone {
+.contact-zone,
+.contact-phone {
   display: flex;
   gap: 18px;
   align-items: flex-start;
@@ -241,7 +265,8 @@
 }
 
 .contact-schedule__icon,
-.contact-zone__icon {
+.contact-zone__icon,
+.contact-phone__icon {
   width: 52px;
   height: 52px;
   border-radius: 14px;
@@ -249,6 +274,11 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.contact-phone__icon {
+  background: linear-gradient(135deg, #16a34a, #25d366);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
 }
 
 .contact-schedule__icon {
@@ -262,11 +292,37 @@
 }
 
 .contact-schedule__title,
-.contact-zone__title {
+.contact-zone__title,
+.contact-phone__title {
   font-size: 1rem;
   font-weight: 700;
   color: #111111;
   margin: 0 0 8px;
+}
+
+.contact-phone__text {
+  font-size: 0.95rem;
+  color: #1f2937;
+  margin: 0 0 4px;
+
+  a {
+    color: #1a56db;
+    font-weight: 600;
+
+    &:hover {
+      color: #143fa3;
+    }
+  }
+}
+
+.contact-matricula {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: -28px auto 40px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a56db;
 }
 
 .contact-schedule__detail {

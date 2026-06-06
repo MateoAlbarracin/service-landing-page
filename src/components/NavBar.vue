@@ -35,6 +35,14 @@
       <!-- Mobile: WhatsApp + hamburger -->
       <div class="mobile-actions">
         <a
+          v-if="site.phone"
+          :href="phoneHref"
+          class="mobile-call-btn"
+          aria-label="Llamar por teléfono"
+        >
+          <AppIcon name="call" />
+        </a>
+        <a
           href="https://wa.me/message/EVCEHGK4VV3GD1"
           target="_blank"
           rel="noopener"
@@ -110,6 +118,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import logoImg from 'src/assets/logo.png'
+import { site, phoneHref } from 'src/config/site'
 
 const mobileMenu = ref(false)
 const scrolled = ref(false)
@@ -191,6 +200,10 @@ onBeforeUnmount(() => {
 
   .mobile-menu-btn {
     color: #111;
+  }
+
+  .mobile-call-btn {
+    color: #1a56db;
   }
 }
 
@@ -301,6 +314,7 @@ onBeforeUnmount(() => {
 }
 
 // Reset compartido para los botones de íconos (antes eran q-btn).
+.mobile-call-btn,
 .mobile-wpp-btn,
 .mobile-menu-btn {
   display: inline-flex;
@@ -314,6 +328,11 @@ onBeforeUnmount(() => {
   background: transparent;
   cursor: pointer;
   font-size: 20px;
+}
+
+.mobile-call-btn {
+  color: #fff;
+  transition: color 0.3s ease;
 }
 
 .mobile-wpp-btn {

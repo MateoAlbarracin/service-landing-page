@@ -14,6 +14,7 @@
             Soluciones profesionales, rápidas y garantizadas para tu hogar o comercio.
             Disponible las 24 horas.
           </p>
+          <p v-if="site.matricula" class="footer-matricula">{{ site.matricula }}</p>
           <div class="footer-social">
             <!-- TODO: Reemplazar con los links reales de redes sociales de Tomás -->
             <a href="https://www.facebook.com/share/18f7wJqdbM/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
@@ -60,6 +61,14 @@
               <AppIcon name="fab fa-whatsapp" class="q-mr-sm" />
               <a href="https://wa.me/message/EVCEHGK4VV3GD1" target="_blank" rel="noopener">WhatsApp</a>
             </li>
+            <li v-if="site.phone">
+              <AppIcon name="call" class="q-mr-sm" />
+              <a :href="phoneHref">{{ site.phone }}</a>
+            </li>
+            <li v-if="site.email">
+              <AppIcon name="mail" class="q-mr-sm" />
+              <a :href="emailHref">{{ site.email }}</a>
+            </li>
             <li>
               <AppIcon name="location_on" class="q-mr-sm" />
               Córdoba, Argentina
@@ -89,6 +98,7 @@
 
 <script setup>
 import logoImg from 'src/assets/logo.png'
+import { site, phoneHref, emailHref } from 'src/config/site'
 
 const currentYear = new Date().getFullYear()
 </script>
@@ -170,6 +180,14 @@ const currentYear = new Date().getFullYear()
     font-size: 0.9rem;
     margin-bottom: 20px;
   }
+}
+
+.footer-matricula {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #93c5fd;
+  margin-bottom: 16px;
 }
 
 .footer-social {
