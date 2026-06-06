@@ -134,6 +134,7 @@ const menuItems = [
   { label: 'Servicios', link: '#servicios', icon: 'build' },
   { label: 'Trabajos', link: '#trabajos', icon: 'photo_library' },
   { label: 'Testimonios', link: '#testimonios', icon: 'star' },
+  { label: 'Preguntas', link: '#preguntas', icon: 'help_outline' },
   { label: 'Contacto', link: '#contacto', icon: 'contact_phone' }
 ]
 

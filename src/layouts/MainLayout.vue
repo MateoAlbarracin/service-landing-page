@@ -1,5 +1,6 @@
 <template>
   <div class="main-layout">
+    <StructuredData />
     <NavBar />
     <main class="main-layout__page">
       <router-view />
@@ -11,6 +12,7 @@
 <script setup>
 import NavBar from 'src/components/NavBar.vue'
 import WhatsAppButton from 'src/components/WhatsAppButton.vue'
+import StructuredData from 'src/components/StructuredData.vue'
 import { useScrollReveal } from 'src/composables/useScrollReveal'
 
 // Activa las animaciones de aparición al hacer scroll en toda la app.
