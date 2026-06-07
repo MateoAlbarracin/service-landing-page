@@ -13,9 +13,11 @@
       <div class="google-reviews">
         <div class="google-reviews__header" data-reveal>
           <img
-            src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+            :src="googleLogo"
             alt="Google"
             class="google-logo"
+            width="92"
+            height="30"
           />
           <div class="google-reviews__rating">
             <div class="stars">
@@ -88,6 +90,8 @@
 </template>
 
 <script setup>
+import googleLogo from 'src/assets/google-logo.png'
+
 const reviews = [
   {
     name: 'María García',

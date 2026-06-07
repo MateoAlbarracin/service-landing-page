@@ -1,7 +1,7 @@
 <template>
   <section id="inicio" class="hero">
     <!-- Imagen de fondo -->
-    <div class="hero-bg" :style="{ backgroundImage: `url(${heroImg})` }" aria-hidden="true"></div>
+    <img :src="heroImg" class="hero-bg" alt="" aria-hidden="true" fetchpriority="high" />
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-grain" aria-hidden="true"></div>
 
@@ -84,9 +84,10 @@ import heroImg from 'src/assets/hero.jpg?format=webp&quality=75&w=1600'
 .hero-bg {
   position: absolute;
   inset: -5%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center;
   transform: scale(1.08);
   animation: heroZoom 18s ease-in-out infinite alternate;
   filter: brightness(0.55) saturate(1.1);
