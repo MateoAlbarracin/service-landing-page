@@ -1,7 +1,15 @@
 <template>
   <section id="inicio" class="hero">
     <!-- Imagen de fondo -->
-    <img :src="heroImg" class="hero-bg" alt="" aria-hidden="true" fetchpriority="high" />
+    <img
+      :src="heroImg"
+      :srcset="heroSrcset"
+      sizes="100vw"
+      class="hero-bg"
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+    />
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-grain" aria-hidden="true"></div>
 
@@ -62,7 +70,10 @@
 </template>
 
 <script setup>
-import heroImg from 'src/assets/hero.jpg?format=webp&quality=75&w=1600'
+// Imágenes responsive: el navegador elige el tamaño según el ancho de pantalla.
+// En mobile baja ~480px (~30KB) en vez de los 1600px (139KB) → mejora directa de LCP.
+import heroSrcset from 'src/assets/hero.jpg?format=webp&quality=70&w=480;768;1080;1440&as=srcset'
+import heroImg from 'src/assets/hero.jpg?format=webp&quality=70&w=1080'
 </script>
 
 <style lang="scss" scoped>
