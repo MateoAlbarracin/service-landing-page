@@ -356,7 +356,8 @@ onBeforeUnmount(() => {
   background: rgba(17, 17, 17, 0.55);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  z-index: 5000;
+  // Por encima del botón flotante de WhatsApp (z-index 9999) para que no tape el drawer
+  z-index: 10000;
 }
 
 .mobile-drawer {
@@ -366,7 +367,8 @@ onBeforeUnmount(() => {
   bottom: 0;
   width: min(320px, 88vw);
   background: #ffffff;
-  z-index: 5001;
+  // Por encima del botón flotante de WhatsApp (z-index 9999)
+  z-index: 10001;
   display: flex;
   flex-direction: column;
   box-shadow: -12px 0 40px rgba(17, 17, 17, 0.2);
@@ -385,10 +387,10 @@ onBeforeUnmount(() => {
 }
 
 .mobile-drawer__logo {
+  width: 44px;
   height: 44px;
-  width: auto;
-  border-radius: 6px;
-  object-fit: contain;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .mobile-drawer__close {

@@ -117,7 +117,7 @@ import { site, phoneHref, emailHref } from 'src/config/site'
 
 <style lang="scss" scoped>
 .contact {
-  background-color: #ffffff;
+  background-color: #f5f7fa;
   position: relative;
   overflow: hidden;
 }
@@ -248,7 +248,7 @@ import { site, phoneHref, emailHref } from 'src/config/site'
   display: flex;
   gap: 18px;
   align-items: flex-start;
-  background: #f5f7fa;
+  background: #ffffff;
   border-radius: 16px;
   padding: 22px;
   border: 1px solid rgba(17, 17, 17, 0.04);
